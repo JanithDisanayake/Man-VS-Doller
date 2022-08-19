@@ -1,8 +1,4 @@
-if (enemyCounter == 50)
-	// {
-	// 	// enemyX[enemyNumber] = rand() % width;
-	// 	// enemyY[enemyNumber] = rand() % height;
-	// 	enemyNumber++;
-	// 	if (enemyNumber == 5) enemyNumber = 0;
-	// 	enemyCounter = 0;
-	// }
+
+			else if (enemyX[2] == j && enemyY[2] == i) cout << "*";
+			else if (enemyX[3] == j && enemyY[3] == i) cout << "*";
+			else if (enemyX[4] == j && enemyY[4] == i) cout << "*";
