@@ -27,4 +27,6 @@ void logoDoller() {
 int main() {
 
 	logoDoller();
+    Sleep(10000);
+    system("cls");
 }
