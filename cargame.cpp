@@ -10,6 +10,7 @@ int carY;
 int enemyX[5];
 int enemyY[5];
 int enemyCounter;
+int score;
 int enemyNumber = 0;
 int enemyNumber2 = 0;
 bool gameOver = false;
@@ -39,10 +40,11 @@ void logoDoller() {
 }
 
 void setup() {
-	logoDoller();
-    Sleep(10000);
+	// logoDoller();
+    // Sleep(10000);
 	carX = width/2;
     carY = height-2;
+	score = 0;
 }
 
 void draw() {
@@ -51,21 +53,31 @@ void draw() {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			if (i == 0 || i == height - 1 || j == 0 || j == width - 1)	cout << "#";
-			else if (enemyX[0] == j && enemyY[0] == i) cout << "*";
-			else if (enemyX[1] == j && enemyY[1] == i) cout << "*";
-			else if (enemyX[2] == j && enemyY[2] == i) cout << "*";
-			else if (enemyX[3] == j && enemyY[3] == i) cout << "*";
-			else if (enemyX[4] == j && enemyY[4] == i) cout << "*";
-			else if (i == carY && j == carX)    cout << "M";
+			else if (enemyX[0] == j && enemyY[0] == i) cout << "$";
+			else if (enemyX[1] == j && enemyY[1] == i) cout << "$";
+			else if (enemyX[2] == j && enemyY[2] == i) cout << "$";
+			else if (enemyX[3] == j && enemyY[3] == i) cout << "$";
+			else if (enemyX[4] == j && enemyY[4] == i) cout << "$";
+			else if (i == carY && j == carX)    cout << "U";
 			else cout << " ";
 		}
 		cout << "\n";
 	}
+// 	used to change the doller position
 	enemyY[0]++;
 	enemyY[1]++;
 	enemyY[2]++;
 	enemyY[3]++;
 	enemyY[4]++;
+
+	if ((enemyY[0] == 19 && carX == enemyX[0]) || 
+				(enemyY[1] == 19 && carX == enemyX[1]) ||
+				(enemyY[2] == 19 && carX == enemyX[2]) ||
+				(enemyY[3] == 19 && carX == enemyX[3]) ||
+				(enemyY[4] == 19 && carX == enemyX[4])
+				) score++;
+
+	cout<<score;
 	// cout << enemyY[0];
 	// cout << " ";
 	// cout << enemyY[1];
