@@ -81,7 +81,7 @@ void draw() {
 				) 
 				{
 					score++;
-					lifecounter = 4;
+					if(lifecounter<4) lifecounter++;
 				}
 //	used to count missing dollers
 	else if ((enemyY[0] == 19 && carX == enemyX[0]) || 
