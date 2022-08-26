@@ -11,6 +11,7 @@ int enemyX[5];
 int enemyY[5];
 int enemyCounter;
 int score;
+int failcounter;
 int enemyNumber = 0;
 int enemyNumber2 = 0;
 bool gameOver = false;
@@ -40,11 +41,12 @@ void logoDoller() {
 }
 
 void setup() {
-	// logoDoller();
-    // Sleep(10000);
+	logoDoller();
+    Sleep(5000);
 	carX = width/2;
     carY = height-2;
 	score = 0;
+	failcounter=0;
 }
 
 void draw() {
@@ -70,13 +72,31 @@ void draw() {
 	enemyY[3]++;
 	enemyY[4]++;
 
+// 	used to calculate score
 	if ((enemyY[0] == 19 && carX == enemyX[0]) || 
 				(enemyY[1] == 19 && carX == enemyX[1]) ||
 				(enemyY[2] == 19 && carX == enemyX[2]) ||
 				(enemyY[3] == 19 && carX == enemyX[3]) ||
 				(enemyY[4] == 19 && carX == enemyX[4])
-				) score++;
+				) 
+				{
+					score++;
+					failcounter = 0;
+				}
+//	used to count missing dollers
+	else if ((enemyY[0] == 19 && carX == enemyX[0]) || 
+				(enemyY[1] == 19 && carX != enemyX[1]) ||
+				(enemyY[2] == 19 && carX != enemyX[2]) ||
+				(enemyY[3] == 19 && carX != enemyX[3]) ||
+				(enemyY[4] == 19 && carX != enemyX[4])
+				) 
+				{
+					failcounter++;
+					// if user fail to grab more than 3 dollers one after another he/she will fail
+					if(failcounter>3)	gameOver=true;
+				}
 
+// 	used to print the score
 	cout<<score;
 	// cout << enemyY[0];
 	// cout << " ";
@@ -103,8 +123,8 @@ void input() {
         else
             carX=carX;
 
-        if (carX < 2)   carX=width-3;
-        if (carX > width-3) carX=2;
+        if (carX < 1)   carX=width-2;
+        if (carX > width-2) carX=1;
     }
 }
 
