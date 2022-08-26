@@ -11,7 +11,7 @@ int enemyX[5];
 int enemyY[5];
 int enemyCounter;
 int score;
-int failcounter = 4;
+int lifecounter = 4;
 int enemyNumber = 0;
 int enemyNumber2 = 0;
 bool gameOver = false;
@@ -81,7 +81,7 @@ void draw() {
 				) 
 				{
 					score++;
-					failcounter = 4;
+					lifecounter = 4;
 				}
 //	used to count missing dollers
 	else if ((enemyY[0] == 19 && carX == enemyX[0]) || 
@@ -91,9 +91,9 @@ void draw() {
 				(enemyY[4] == 19 && carX != enemyX[4])
 				) 
 				{
-					failcounter--;
+					lifecounter--;
 					// if user fail to grab more than 3 dollers one after another he/she will fail
-					if(failcounter==0)	gameOver=true;
+					if(lifecounter==0)	gameOver=true;
 				}
 
 // 	used to print the score
@@ -101,7 +101,7 @@ void draw() {
 	cout<<score;
 	cout<<"\n";
 	cout<< "Life :  ";
-	cout<< failcounter;
+	cout<< lifecounter;
 	// cout << enemyY[0];
 	// cout << " ";
 	// cout << enemyY[1];
