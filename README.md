@@ -21,10 +21,7 @@
   - If you catch one doller, both `life` and `score` increase by one
   
 ## Game Images
-<div align="Left">
+|Loding Image|Playing Image|
+|:---:|:---:|
+| ![img](https://github.com/Janith3003/Man-VS-Doller/blob/main/game-images/Screenshot%202022-08-28%20232131.png) | ![img](https://github.com/Janith3003/Man-VS-Doller/blob/main/game-images/Screenshot%202022-08-28%20232816.png) |
 
-![img](https://github.com/Janith3003/Man-VS-Doller/blob/main/game-images/Screenshot%202022-08-28%20232131.png)
-
-![img](https://github.com/Janith3003/Man-VS-Doller/blob/main/game-images/Screenshot%202022-08-28%20232816.png)
-
-</div>
