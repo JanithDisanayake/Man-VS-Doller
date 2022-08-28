@@ -122,6 +122,8 @@ void input() {
             bucketX--;
         else if (type == 'd')
             bucketX++;
+		else if (type == 'x')
+			gameOver=true;
         else if (bucketX <= 1)    
             bucketX = 1;
         else
