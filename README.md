@@ -1,6 +1,6 @@
 <div align="center">
 <h1> Man VS Doller </h1>
-<img src="doller.png"/>
+<img src="dollar-coin.png"/>
 <img src="pic.png"/>
 <img src="joy-stick.png"/>
 </div>
