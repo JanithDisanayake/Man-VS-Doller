@@ -5,20 +5,20 @@ using namespace std;
 
 int height = 20;
 int width = 25;
-int carX;
-int carY;
-int enemyX[5];
-int enemyY[5];
-int enemyCounter;
-int enemyNumber = 0;
-int enemyNumber2 = 0;
+int bucketX;
+int bucketY;
+int dollerX[5];
+int dollerY[5];
+int counter;
+int dollerNumber = 0;
+int dollerNumber2 = 0;
 bool gameOver = false;
 enum Dir {STOP = 0, LEFT, RIGHT};
 Dir dir;
 
 void setup() {
-	carX = width/2;
-    carY = height-2;
+	bucketX = width/2;
+    bucketY = height-2;
 }
 
 void draw() {
@@ -27,12 +27,12 @@ void draw() {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			if (i == 0 || i == height - 1 || j == 0 || j == width - 1)	cout << "#";
-            else if (i == carY && j == carX)    cout << "M";
+            else if (i == bucketY && j == bucketX)    cout << "M";
 			else cout << " ";
 		}
 		cout << "\n";
 	}
-    cout << enemyCounter;
+    cout << counter;
 }
 
 void input() {
@@ -41,16 +41,16 @@ void input() {
         char type = _getch();
 
         if (type == 'a')
-            carX--;
+            bucketX--;
         else if (type == 'd')
-            carX++;
-        else if (carX <= 1)    
-            carX = 1;
+            bucketX++;
+        else if (bucketX <= 1)    
+            bucketX = 1;
         else
-            carX=carX;
+            bucketX=bucketX;
 
-        if (carX < 2)   carX=width-3;
-        if (carX > width-3) carX=2;
+        if (bucketX < 2)   bucketX=width-3;
+        if (bucketX > width-3) bucketX=2;
     }
 }
 
@@ -69,7 +69,7 @@ int main() {
         input();
 		draw();
 		logic();
-		enemyCounter+=1;
+		counter+=1;
 		Sleep(100);
 	}
 }

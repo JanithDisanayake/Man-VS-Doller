@@ -5,15 +5,15 @@ using namespace std;
 
 int height = 20;
 int width = 25;
-int carX;
-int carY;
-int enemyX[5];
-int enemyY[5];
-int enemyCounter;
+int bucketX;
+int bucketY;
+int dollerX[5];
+int dollerY[5];
+int counter;
 int score;
 int lifecounter = 4;
-int enemyNumber = 0;
-int enemyNumber2 = 0;
+int dollerNumber = 0;
+int dollerNumber2 = 0;
 bool gameOver = false;
 enum Dir {STOP = 0, LEFT, RIGHT};
 Dir dir;
@@ -43,8 +43,8 @@ void logoDoller() {
 void setup() {
 	logoDoller();
     Sleep(5000);
-	carX = width/2;
-    carY = height-2;
+	bucketX = width/2;
+    bucketY = height-2;
 	score = 0;
 	// failcounter=0;
 }
@@ -55,40 +55,40 @@ void draw() {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			if (i == 0 || i == height - 1 || j == 0 || j == width - 1)	cout << "#";
-			else if (enemyX[0] == j && enemyY[0] == i) cout << "$";
-			else if (enemyX[1] == j && enemyY[1] == i) cout << "$";
-			else if (enemyX[2] == j && enemyY[2] == i) cout << "$";
-			else if (enemyX[3] == j && enemyY[3] == i) cout << "$";
-			else if (enemyX[4] == j && enemyY[4] == i) cout << "$";
-			else if (i == carY && j == carX)    cout << "U";
+			else if (dollerX[0] == j && dollerY[0] == i) cout << "$";
+			else if (dollerX[1] == j && dollerY[1] == i) cout << "$";
+			else if (dollerX[2] == j && dollerY[2] == i) cout << "$";
+			else if (dollerX[3] == j && dollerY[3] == i) cout << "$";
+			else if (dollerX[4] == j && dollerY[4] == i) cout << "$";
+			else if (i == bucketY && j == bucketX)    cout << "U";
 			else cout << " ";
 		}
 		cout << "\n";
 	}
 // 	used to change the doller position
-	enemyY[0]++;
-	enemyY[1]++;
-	enemyY[2]++;
-	enemyY[3]++;
-	enemyY[4]++;
+	dollerY[0]++;
+	dollerY[1]++;
+	dollerY[2]++;
+	dollerY[3]++;
+	dollerY[4]++;
 
 // 	used to calculate score
-	if ((enemyY[0] == 19 && carX == enemyX[0]) || 
-				(enemyY[1] == 19 && carX == enemyX[1]) ||
-				(enemyY[2] == 19 && carX == enemyX[2]) ||
-				(enemyY[3] == 19 && carX == enemyX[3]) ||
-				(enemyY[4] == 19 && carX == enemyX[4])
+	if ((dollerY[0] == 19 && bucketX == dollerX[0]) || 
+				(dollerY[1] == 19 && bucketX == dollerX[1]) ||
+				(dollerY[2] == 19 && bucketX == dollerX[2]) ||
+				(dollerY[3] == 19 && bucketX == dollerX[3]) ||
+				(dollerY[4] == 19 && bucketX == dollerX[4])
 				) 
 				{
 					score++;
 					if(lifecounter<4) lifecounter++;
 				}
 //	used to count missing dollers
-	else if ((enemyY[0] == 19 && carX == enemyX[0]) || 
-				(enemyY[1] == 19 && carX != enemyX[1]) ||
-				(enemyY[2] == 19 && carX != enemyX[2]) ||
-				(enemyY[3] == 19 && carX != enemyX[3]) ||
-				(enemyY[4] == 19 && carX != enemyX[4])
+	else if ((dollerY[0] == 19 && bucketX == dollerX[0]) || 
+				(dollerY[1] == 19 && bucketX != dollerX[1]) ||
+				(dollerY[2] == 19 && bucketX != dollerX[2]) ||
+				(dollerY[3] == 19 && bucketX != dollerX[3]) ||
+				(dollerY[4] == 19 && bucketX != dollerX[4])
 				) 
 				{
 					lifecounter--;
@@ -119,33 +119,33 @@ void input() {
         char type = _getch();
 
         if (type == 'a')
-            carX--;
+            bucketX--;
         else if (type == 'd')
-            carX++;
-        else if (carX <= 1)    
-            carX = 1;
+            bucketX++;
+        else if (bucketX <= 1)    
+            bucketX = 1;
         else
-            carX=carX;
+            bucketX=bucketX;
 
-        if (carX < 1)   carX=width-2;
-        if (carX > width-2) carX=1;
+        if (bucketX < 1)   bucketX=width-2;
+        if (bucketX > width-2) bucketX=1;
     }
 }
 
 void logic() {
 	
-	if (enemyCounter % 10 == 0) {
-		enemyX[enemyNumber] = rand() % width +1;
-		enemyY[enemyNumber] = 1;
-		++enemyNumber;
-		if (enemyNumber>4) enemyNumber = 0;
+	if (counter % 10 == 0) {
+		dollerX[dollerNumber] = rand() % width +1;
+		dollerY[dollerNumber] = 1;
+		++dollerNumber;
+		if (dollerNumber>4) dollerNumber = 0;
 	}
-	else if (enemyCounter % 20 == 0)	{
-		enemyX[enemyNumber2] = rand() % width +1;
-		enemyY[enemyNumber2] = 1;
-		++enemyNumber2;
-		if (enemyNumber2>4) enemyNumber2 = 0;
-		enemyCounter = 0;
+	else if (counter % 20 == 0)	{
+		dollerX[dollerNumber2] = rand() % width +1;
+		dollerY[dollerNumber2] = 1;
+		++dollerNumber2;
+		if (dollerNumber2>4) dollerNumber2 = 0;
+		counter = 0;
 	}
 
 
@@ -160,7 +160,7 @@ int main() {
 		input();
 		draw();
 		logic();
-		enemyCounter+=1;
+		counter+=1;
 		Sleep(100);
 	}
 	draw();
