@@ -19,3 +19,12 @@
   - You need to catch falling dollers to get more `score`
   - If You fail to catch one of doller then `Life` will reduce by one
   - If you catch one doller, both `life` and `score` increase by one
+  
+## Game Images
+<div align="Left">
+
+![img](https://github.com/Janith3003/Man-VS-Doller/blob/main/game-images/Screenshot%202022-08-28%20232131.png)
+
+![img](https://github.com/Janith3003/Man-VS-Doller/blob/main/game-images/Screenshot%202022-08-28%20232816.png)
+
+</div>
