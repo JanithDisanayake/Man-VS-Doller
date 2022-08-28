@@ -96,7 +96,7 @@ void draw() {
 					if(lifecounter==0)	gameOver=true;
 				}
 
-// 	used to print the score
+// 	used to print the scorea
 	cout<< "Score : ";
 	cout<<score;
 	cout<<"\n";
@@ -163,4 +163,6 @@ int main() {
 		enemyCounter+=1;
 		Sleep(100);
 	}
+	draw();
+	Sleep(5000);
 }
