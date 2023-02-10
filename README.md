@@ -1,8 +1,8 @@
 <div align="center">
 <h1> Man VS Doller </h1>
-<img src="dollar-coin.png"/>
-<img src="pic.png"/>
-<img src="joy-stick.png"/>
+<img src="icons/dollar-coin.png"/>
+<img src="icons/pic.png"/>
+<img src="icons/joy-stick.png"/>
 </div>
 
 ## Instructions
